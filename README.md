@@ -11,7 +11,7 @@ Add this to your pom.xml
 	<dependency>
       <groupId>io.microlam</groupId>
       <artifactId>microlam-bom</artifactId>
-      <version>0.1-SNAPSHOT</version>
+      <version>0.2</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>
