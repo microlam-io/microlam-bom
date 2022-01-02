@@ -6,7 +6,7 @@
 
       <groupId>io.microlam</groupId>
       <artifactId>microlam-bom</artifactId>
-      <version>0.2</version>
+      <version>0.3-SNAPSHOT</version>
       <packaging>pom</packaging>
       <name>Microlam BOM</name>
       <description>Microlam Bill Of Material</description>
@@ -36,7 +36,7 @@
 
 	<scm>
 	  <connection>scm:git:git://github.com/microlam-io/${project.artifactId}.git</connection>
-	  <developerConnection>scm:git:ssh://github.com:microlam-io/${project.artifactId}.git</developerConnection>
+	  <developerConnection>scm:git:ssh://git@github.com/microlam-io/${project.artifactId}.git</developerConnection>
 	  <url>https://github.com/microlam-io/${project.artifactId}/tree/master</url>
 	</scm>
 
@@ -101,38 +101,40 @@
         <dependency>
           <groupId>io.microlam</groupId>
 	        <artifactId>microlam-json</artifactId>
-          <version>0.1</version>
+          <version>${project.version}</version>
         </dependency>
         <dependency>
            <groupId>io.microlam</groupId>
 	         <artifactId>microlam-aws-lambda</artifactId>
-           <version>0.1</version>
+           <version>${project.version}</version>
         </dependency>
         <dependency>
           <groupId>io.microlam</groupId>
         	<artifactId>microlam-aws-auth</artifactId>
-          <version>0.1</version>
-        </dependency>
-        <dependency>
-          <groupId>io.microlam</groupId>
-        	<artifactId>microlam-aws-devops</artifactId>
-          <version>0.1</version>
-        </dependency>
-        <dependency>
-          <groupId>io.microlam</groupId>
-        	<artifactId>microlam-params</artifactId>
-          <version>0.1</version>
+          <version>${project.version}</version>
         </dependency>
         <dependency>
           <groupId>io.microlam</groupId>
         	<artifactId>microlam-params-aws</artifactId>
-          <version>0.1</version>
+          <version>${project.version}</version>
         </dependency>
         <dependency>
           <groupId>io.microlam</groupId>
         	<artifactId>microlam-utils</artifactId>
-          <version>0.1</version>
+          <version>${project.version}</version>
         </dependency>
+        <dependency>
+          <groupId>io.microlam</groupId>
+        	<artifactId>microlam-params</artifactId>
+          <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+          <groupId>io.microlam</groupId>
+        	<artifactId>microlam-aws-devops</artifactId>
+          <version>0.4</version>
+        </dependency>
+
         <dependency>
           <groupId>io.microlam</groupId>
           <artifactId>microlam-assembly-descriptor</artifactId>
@@ -142,7 +144,7 @@
 		<dependency>
 		    <groupId>io.microlam</groupId>
 			<artifactId>slf4j-simple-lambda</artifactId>
-		    <version>${slf4j.version}_1.2</version>
+		    <version>${slf4j.version}_1.3</version>
 		</dependency>
 
 	    <dependency>
@@ -298,6 +300,12 @@
       </dependencies>
     	</plugin>
     	
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>3.0.0-M4</version>
+      </plugin>
+
 	</plugins>
 	
 </build>
