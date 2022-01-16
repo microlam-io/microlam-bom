@@ -5,7 +5,7 @@
 
       <groupId>io.microlam</groupId>
       <artifactId>microlam-bom</artifactId>
-      <version>0.4-SNAPSHOT</version>
+      <version>0.3.1-SNAPSHOT</version>
       <packaging>pom</packaging>
       <name>Microlam BOM</name>
       <description>Microlam Bill Of Material</description>
@@ -59,9 +59,11 @@
 	<slf4j.version>2.0.0-alpha5</slf4j.version>
 	<log4j.api.version>2.17.0</log4j.api.version>
 	<aws.sdk.version>2.17.102</aws.sdk.version>
+	<cdk.version>2.8.0</cdk.version>
+    <constructs.version>[10.0.0,11.0.0)</constructs.version>
     <netty.version>4.1.72.Final</netty.version>
     <junit5.version>5.8.2</junit5.version>
-	<aws.ric.version>2.0.0</aws.ric.version>
+	<aws.ric.version>2.1.0</aws.ric.version>
   </properties>
 
     <dependencyManagement>
@@ -88,15 +90,35 @@
 	   </dependency>
 
 		<dependency>
-		   <groupId>com.amazonaws</groupId>
+		   <groupId>io.microlam</groupId>
 		   <artifactId>aws-lambda-java-runtime-interface-client</artifactId>
 		   <version>${aws.ric.version}</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>io.microlam</groupId>
+			<artifactId>aws-lambda-java-runtime-interface-client-native-config</artifactId>
+			<classifier>java11</classifier>
+			<version>${aws.ric.version}_1</version>
 		</dependency>
 		<dependency>
 		    <groupId>io.microlam</groupId>
 			<artifactId>aws-lambda-java-runtime-interface-client-native-config</artifactId>
-			<version>${aws.ric.version}</version>
+			<classifier>java17</classifier>
+			<version>${aws.ric.version}_1</version>
 		</dependency>
+
+	    <dependency>
+	        <groupId>software.amazon.awscdk</groupId>
+	        <artifactId>aws-cdk-lib</artifactId>
+	        <version>${cdk.version}</version>
+	    </dependency>
+	
+	    <dependency>
+	        <groupId>software.constructs</groupId>
+	        <artifactId>constructs</artifactId>
+	        <version>${constructs.version}</version>
+	    </dependency>
 
         <dependency>
           <groupId>io.microlam</groupId>
@@ -132,7 +154,7 @@
         <dependency>
           <groupId>io.microlam</groupId>
         	<artifactId>microlam-aws-devops</artifactId>
-          <version>0.4</version>
+          <version>0.5</version>
         </dependency>
 
         <dependency>
@@ -209,12 +231,67 @@
     </dependencyManagement>
 
 <build>
+
+	<pluginManagement>
+		<plugins>
+		  <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-compiler-plugin</artifactId>
+	        <version>3.8.0</version>
+		 </plugin>
+	      <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-jar-plugin</artifactId>
+	        <version>3.2.0</version>
+	      </plugin>
+	     <plugin>
+	      	<groupId>org.apache.maven.plugins</groupId>
+	      	<artifactId>maven-source-plugin</artifactId>
+	      	<version>3.2.0</version>
+	     </plugin>
+	      <plugin>
+	      	<groupId>org.apache.maven.plugins</groupId>
+	      	<artifactId>maven-javadoc-plugin</artifactId>
+	      	<version>3.3.1</version>
+	     </plugin>
+	      <plugin>
+		      <groupId>org.apache.maven.plugins</groupId>
+		      <artifactId>maven-gpg-plugin</artifactId>
+		      <version>1.6</version>
+	      </plugin>
+	      <plugin>
+		      <groupId>org.sonatype.plugins</groupId>
+		      <artifactId>nexus-staging-maven-plugin</artifactId>
+		      <version>1.6.7</version>
+	      </plugin>
+	      <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-release-plugin</artifactId>
+	        <version>3.0.0-M4</version>
+	      </plugin>
+		  <plugin>
+	         <groupId>io.fabric8</groupId>
+	         <artifactId>docker-maven-plugin</artifactId>
+	         <version>0.38.0</version>
+		  </plugin>
+		  <plugin>
+		     <groupId>org.codehaus.mojo</groupId>
+		     <artifactId>versions-maven-plugin</artifactId>
+		     <version>2.8.1</version>
+		  </plugin>
+		  <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-help-plugin</artifactId>
+	        <version>3.2.0</version>
+		  </plugin>
+		</plugins>
+	</pluginManagement>
+
 	<plugins>
 
      <plugin>
       	<groupId>org.apache.maven.plugins</groupId>
       	<artifactId>maven-source-plugin</artifactId>
-      	<version>3.2.0</version>
       	<executions>
       		<execution>
       			<id>attach-sources</id>
@@ -228,7 +305,6 @@
       <plugin>
       	<groupId>org.apache.maven.plugins</groupId>
       	<artifactId>maven-javadoc-plugin</artifactId>
-      	<version>3.3.1</version>
       	<executions>
       		<execution>
       			<id>attach-javadocs</id>
@@ -246,7 +322,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-         <version>3.2.0</version>
         <executions>
             <execution>
                 <id>empty-javadoc-jar</id>
@@ -265,7 +340,6 @@
       <plugin>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-gpg-plugin</artifactId>
-      <version>1.6</version>
       <executions>
         <execution>
           <id>sign-artifacts</id>
@@ -284,7 +358,6 @@
      	<plugin>
 	      <groupId>org.sonatype.plugins</groupId>
 	      <artifactId>nexus-staging-maven-plugin</artifactId>
-	      <version>1.6.7</version>
 	      <extensions>true</extensions>
 	      <configuration>
 	        <serverId>ossrh</serverId>
@@ -303,7 +376,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-        <version>3.0.0-M4</version>
       </plugin>
 
 	</plugins>
