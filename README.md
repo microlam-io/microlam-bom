@@ -1,5 +1,7 @@
 # microlam-bom
 
+![Maven Central](https://img.shields.io/maven-central/v/io.microlam/microlam-bom)
+
 Microlam Bill Of Materials for simplifying version management
 
 Add this to your pom.xml
