@@ -13,7 +13,7 @@ Add this to your pom.xml
 	<dependency>
       <groupId>io.microlam</groupId>
       <artifactId>microlam-bom</artifactId>
-      <version>0.4.1</version>
+      <version>0.5.1</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>

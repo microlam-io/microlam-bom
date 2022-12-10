@@ -5,7 +5,7 @@
 
       <groupId>io.microlam</groupId>
       <artifactId>microlam-bom</artifactId>
-      <version>0.4.5-SNAPSHOT</version>
+      <version>0.5.1-SNAPSHOT</version>
       <packaging>pom</packaging>
       <name>Microlam BOM</name>
       <description>Microlam Bill Of Material</description>
@@ -58,12 +58,12 @@
     <gpg.keyname>8011431D42D5A9ACBEF8B2A6D153D68FA8DF084C</gpg.keyname>
 	<slf4j.version>2.0.3</slf4j.version>
 	<log4j.api.version>2.19.0</log4j.api.version>
-	<aws.sdk.version>2.18.19</aws.sdk.version>
-	<cdk.version>2.50.0</cdk.version>
+	<aws.sdk.version>2.18.25</aws.sdk.version>
+	<cdk.version>2.54.0</cdk.version>
     <constructs.version>[10.0.0,11.0.0)</constructs.version>
-    <netty.version>4.1.85.Final</netty.version>
     <junit5.version>5.9.1</junit5.version>
-	<aws.ric.version>2.1.0</aws.ric.version>
+	<aws.ric.version>2.1.1</aws.ric.version>
+	<netty.version>4.1.85.Final</netty.version>
   </properties>
 
     <dependencyManagement>
@@ -80,7 +80,7 @@
 	    <dependency>
 	      <groupId>com.amazonaws</groupId>
 	      <artifactId>aws-lambda-java-core</artifactId>
-	      <version>1.2.0</version>
+	      <version>1.2.2</version>
 	    </dependency>
 	
 	    <dependency>
@@ -90,22 +90,9 @@
 	   </dependency>
 
 		<dependency>
-		   <groupId>io.microlam</groupId>
-		   <artifactId>aws-lambda-java-runtime-interface-client</artifactId>
-		   <version>${aws.ric.version}</version>
-		</dependency>
-
-		<dependency>
-		    <groupId>io.microlam</groupId>
-			<artifactId>aws-lambda-java-runtime-interface-client-native-config</artifactId>
-			<classifier>java11</classifier>
-			<version>${aws.ric.version}_2</version>
-		</dependency>
-		<dependency>
-		    <groupId>io.microlam</groupId>
-			<artifactId>aws-lambda-java-runtime-interface-client-native-config</artifactId>
-			<classifier>java17</classifier>
-			<version>${aws.ric.version}_2</version>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-lambda-java-runtime-interface-client</artifactId>
+		    <version>${aws.ric.version}</version>
 		</dependency>
 
 	    <dependency>
@@ -191,35 +178,29 @@
 		    <artifactId>log4j-api</artifactId>
 		    <version>${log4j.api.version}</version>
 		</dependency>
-
-	    <dependency>
-		    <groupId>jakarta.json</groupId>
-		    <artifactId>jakarta.json-api</artifactId>
-		    <version>2.1.1</version>
-		</dependency>
-	    
-	    <dependency>
-	    	<groupId>org.eclipse.parsson</groupId>
-	    	<artifactId>parsson</artifactId>
-	    	<version>1.1.1</version>
-	    </dependency>
-
-        <dependency>
-            <groupId>jakarta.json.bind</groupId>
-            <artifactId>jakarta.json.bind-api</artifactId>
-            <version>3.0.0</version>
-        </dependency>
         
-        <dependency>
-			<groupId>org.eclipse</groupId>
-    		<artifactId>yasson</artifactId>
-    		<version>3.0.2</version>
-        </dependency>
+	    <dependency>
+	        <groupId>org.apache.geronimo.specs</groupId>
+	        <artifactId>geronimo-json_1.1_spec</artifactId>
+	        <version>1.0</version>
+	    </dependency>
+		    
+	   	<dependency>
+		    <groupId>org.apache.johnzon</groupId>
+		    <artifactId>johnzon-jsonb</artifactId>
+		    <version>1.2.19</version>
+		</dependency>
+	
+		<dependency>
+	        <groupId>org.apache.geronimo.specs</groupId>
+	        <artifactId>geronimo-jsonb_1.0_spec</artifactId>
+	        <version>1.2</version>
+	    </dependency>
         
 		<dependency>
 			<groupId>com.github.wnameless.json</groupId>
 			<artifactId>json-flattener</artifactId>
-			<version>0.14.2</version>
+			<version>0.15.1</version>
 		</dependency>
 
 		<dependency>
@@ -227,6 +208,7 @@
 		    <artifactId>netty-codec</artifactId>
 			<version>${netty.version}</version>
 		</dependency>
+
 		<dependency>
 		    <groupId>io.netty</groupId>
 		    <artifactId>netty-common</artifactId>
@@ -244,6 +226,12 @@
 	        <artifactId>junit-jupiter-engine</artifactId>
 	        <version>${junit5.version}</version>
 	    </dependency>
+
+	 	<dependency>
+		  <groupId>com.squareup.okhttp3</groupId>
+		  <artifactId>okhttp</artifactId>
+		  <version>4.10.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
