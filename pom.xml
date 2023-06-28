@@ -5,7 +5,7 @@
 
       <groupId>io.microlam</groupId>
       <artifactId>microlam-bom</artifactId>
-      <version>0.5.2-SNAPSHOT</version>
+      <version>0.5.3</version>
       <packaging>pom</packaging>
       <name>Microlam BOM</name>
       <description>Microlam Bill Of Material</description>
@@ -100,28 +100,28 @@
 		    <groupId>io.microlam</groupId>
 			<artifactId>aws-lambda-java-runtime-interface-client-native-config</artifactId>
 			<classifier>java11</classifier>
-		    <version>${aws.ric.version}</version>
+		    <version>${aws.ric.version}_1</version>
 		</dependency>
 
 		<dependency>
 		    <groupId>io.microlam</groupId>
 			<artifactId>aws-lambda-java-runtime-interface-client-native-config</artifactId>
 			<classifier>java17</classifier>
-		    <version>${aws.ric.version}</version>
+		    <version>${aws.ric.version}_1</version>
 		</dependency>
 
 		<dependency>
 		    <groupId>io.microlam</groupId>
 			<artifactId>aws-lambda-java-runtime-interface-client-native-config</artifactId>
 			<classifier>java19</classifier>
-		    <version>${aws.ric.version}</version>
+		    <version>${aws.ric.version}_1</version>
 		</dependency>
 
 		<dependency>
 		    <groupId>io.microlam</groupId>
 			<artifactId>aws-lambda-java-runtime-interface-client-native-config</artifactId>
 			<classifier>java20</classifier>
-		    <version>${aws.ric.version}</version>
+		    <version>${aws.ric.version}_1</version>
 		</dependency>
 
 	    <dependency>
