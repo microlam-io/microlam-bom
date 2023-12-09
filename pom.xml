@@ -5,7 +5,7 @@
 
       <groupId>io.microlam</groupId>
       <artifactId>microlam-bom</artifactId>
-      <version>0.5.3</version>
+      <version>0.6.0</version>
       <packaging>pom</packaging>
       <name>Microlam BOM</name>
       <description>Microlam Bill Of Material</description>
@@ -56,15 +56,15 @@
     <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <gpg.keyname>8011431D42D5A9ACBEF8B2A6D153D68FA8DF084C</gpg.keyname>
-	<slf4j.version>2.0.7</slf4j.version>
-	<log4j.api.version>2.20.0</log4j.api.version>
-	<aws.sdk.version>2.20.90</aws.sdk.version>
-	<cdk.version>2.85.0</cdk.version>
+	<slf4j.version>2.0.9</slf4j.version>
+	<log4j.api.version>2.22.0</log4j.api.version>
+	<aws.sdk.version>2.21.37</aws.sdk.version>
+	<cdk.version>2.113.0</cdk.version>
     <constructs.version>[10.0.0,11.0.0)</constructs.version>
     <junit4.version>4.13.2</junit4.version>
-    <junit5.version>5.9.3</junit5.version>
-	<aws.ric.version>2.3.2</aws.ric.version>
-	<netty.version>4.1.94.Final</netty.version>
+    <junit5.version>5.10.1</junit5.version>
+	<aws.ric.version>2.4.1</aws.ric.version>
+	<netty.version>4.1.101.Final</netty.version>
   </properties>
 
     <dependencyManagement>
@@ -81,13 +81,19 @@
 	    <dependency>
 	      <groupId>com.amazonaws</groupId>
 	      <artifactId>aws-lambda-java-core</artifactId>
-	      <version>1.2.2</version>
+	      <version>1.2.3</version>
 	    </dependency>
 	
 	    <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-lambda-java-serialization</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+
+	    <dependency>
 	      <groupId>com.amazonaws</groupId>
 	      <artifactId>aws-lambda-java-events</artifactId>
-	      <version>3.11.2</version>
+	      <version>3.11.4</version>
 	   </dependency>
 
 		<dependency>
@@ -319,7 +325,7 @@
 	      <plugin>
 	      	<groupId>org.apache.maven.plugins</groupId>
 	      	<artifactId>maven-javadoc-plugin</artifactId>
-	      	<version>3.5.0</version>
+	      	<version>3.6.3</version>
 	     </plugin>
 	      <plugin>
 		      <groupId>org.apache.maven.plugins</groupId>
@@ -337,14 +343,9 @@
 	        <version>3.0.1</version>
 	      </plugin>
 		  <plugin>
-	         <groupId>io.fabric8</groupId>
-	         <artifactId>docker-maven-plugin</artifactId>
-	         <version>0.43.0</version>
-		  </plugin>
-		  <plugin>
 		     <groupId>org.codehaus.mojo</groupId>
 		     <artifactId>versions-maven-plugin</artifactId>
-		     <version>2.16.0</version>
+		     <version>2.16.2</version>
 		  </plugin>
 		</plugins>
 	</pluginManagement>
