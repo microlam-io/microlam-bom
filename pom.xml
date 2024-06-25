@@ -5,7 +5,7 @@
 
       <groupId>io.microlam</groupId>
       <artifactId>microlam-bom</artifactId>
-      <version>0.6.1</version>
+      <version>0.6.2</version>
       <packaging>pom</packaging>
       <name>Microlam BOM</name>
       <description>Microlam Bill Of Material</description>
@@ -156,6 +156,12 @@
 
         <dependency>
            <groupId>io.microlam</groupId>
+	         <artifactId>microlam-aws-lambda-auth</artifactId>
+           <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+           <groupId>io.microlam</groupId>
 	         <artifactId>microlam-java-logging</artifactId>
            <version>${project.version}</version>
         </dependency>
@@ -274,6 +280,12 @@
 		    <artifactId>netty-common</artifactId>
 			<version>${netty.version}</version>
 		</dependency>
+
+		  <dependency>
+		    <groupId>org.bitbucket.b_c</groupId>
+		    <artifactId>jose4j</artifactId>
+		    <version>0.9.6</version>
+		  </dependency>
 
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
