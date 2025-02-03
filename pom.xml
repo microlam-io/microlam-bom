@@ -5,7 +5,7 @@
 
       <groupId>io.microlam</groupId>
       <artifactId>microlam-bom</artifactId>
-      <version>0.6.2</version>
+      <version>0.6.4</version>
       <packaging>pom</packaging>
       <name>Microlam BOM</name>
       <description>Microlam Bill Of Material</description>
@@ -56,27 +56,19 @@
     <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <gpg.keyname>8011431D42D5A9ACBEF8B2A6D153D68FA8DF084C</gpg.keyname>
-	<slf4j.version>2.0.9</slf4j.version>
-	<log4j.api.version>2.22.0</log4j.api.version>
-	<aws.sdk.version>2.21.37</aws.sdk.version>
-	<cdk.version>2.113.0</cdk.version>
-    <constructs.version>[10.0.0,11.0.0)</constructs.version>
+	<slf4j.version>2.0.16</slf4j.version>
+	<log4j.api.version>2.24.3</log4j.api.version>
+	<!--<aws.sdk.version>2.30.11</aws.sdk.version>-->
+	<cdk.version>2.177.0</cdk.version>
+    <!--<constructs.version>[10.0.0,11.0.0)</constructs.version>-->
     <junit4.version>4.13.2</junit4.version>
-    <junit5.version>5.10.1</junit5.version>
-	<aws.ric.version>2.4.1</aws.ric.version>
-	<netty.version>4.1.101.Final</netty.version>
+    <junit5.version>5.11.4</junit5.version>
+	<aws.ric.version>2.6.0</aws.ric.version>
+	<netty.version>4.1.117.Final</netty.version>
   </properties>
 
     <dependencyManagement>
         <dependencies>
-
-		 <dependency>
-		      <groupId>software.amazon.awssdk</groupId>
-		      <artifactId>bom</artifactId>
-		      <version>${aws.sdk.version}</version>
-		      <type>pom</type>
-		      <scope>import</scope>
-   		 </dependency>
 
 	    <dependency>
 	      <groupId>com.amazonaws</groupId>
@@ -87,13 +79,13 @@
 	    <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-lambda-java-serialization</artifactId>
-            <version>1.1.2</version>
+            <version>1.1.5</version>
         </dependency>
 
 	    <dependency>
 	      <groupId>com.amazonaws</groupId>
 	      <artifactId>aws-lambda-java-events</artifactId>
-	      <version>3.11.4</version>
+	      <version>3.14.0</version>
 	   </dependency>
 
 		<dependency>
@@ -135,13 +127,13 @@
 	        <artifactId>aws-cdk-lib</artifactId>
 	        <version>${cdk.version}</version>
 	    </dependency>
-	
+<!--	
 	    <dependency>
 	        <groupId>software.constructs</groupId>
 	        <artifactId>constructs</artifactId>
 	        <version>${constructs.version}</version>
 	    </dependency>
-
+-->
         <dependency>
           <groupId>io.microlam</groupId>
 	        <artifactId>microlam-json</artifactId>
@@ -235,19 +227,19 @@
 		<dependency>
 		    <groupId>org.eclipse.parsson</groupId>
 		    <artifactId>parsson</artifactId>
-		    <version>1.1.5</version>
+		    <version>1.1.7</version>
 		</dependency>  
         
         <dependency>
             <groupId>jakarta.json.bind</groupId>
             <artifactId>jakarta.json.bind-api</artifactId>
-            <version>3.0.0</version>
+            <version>3.0.1</version>
         </dependency>
 
 	   	<dependency>
             <groupId>org.eclipse</groupId>
 		    <artifactId>yasson</artifactId>
-    		<version>3.0.3</version>
+    		<version>3.0.4</version>
 		</dependency>
     
 <!--
@@ -266,7 +258,7 @@
 		<dependency>
 			<groupId>com.github.wnameless.json</groupId>
 			<artifactId>json-flattener</artifactId>
-			<version>0.16.6</version>
+			<version>0.17.1</version>
 		</dependency>
 
 		<dependency>
@@ -299,11 +291,13 @@
 	        <version>${junit5.version}</version>
 	    </dependency>
 
+<!--
 	 	<dependency>
 		  <groupId>com.squareup.okhttp3</groupId>
 		  <artifactId>okhttp</artifactId>
 		  <version>4.12.0</version>
 		</dependency>
+-->
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -322,42 +316,42 @@
 		  <plugin>
 	        <groupId>org.apache.maven.plugins</groupId>
 	        <artifactId>maven-compiler-plugin</artifactId>
-	        <version>3.11.0</version>
+	        <version>3.13.0</version>
 		 </plugin>
 	      <plugin>
 	        <groupId>org.apache.maven.plugins</groupId>
 	        <artifactId>maven-jar-plugin</artifactId>
-	        <version>3.3.0</version>
+	        <version>3.4.2</version>
 	      </plugin>
 	     <plugin>
 	      	<groupId>org.apache.maven.plugins</groupId>
 	      	<artifactId>maven-source-plugin</artifactId>
-	      	<version>3.3.0</version>
+	      	<version>3.3.1</version>
 	     </plugin>
 	      <plugin>
 	      	<groupId>org.apache.maven.plugins</groupId>
 	      	<artifactId>maven-javadoc-plugin</artifactId>
-	      	<version>3.6.3</version>
+	      	<version>3.11.2</version>
 	     </plugin>
 	      <plugin>
 		      <groupId>org.apache.maven.plugins</groupId>
 		      <artifactId>maven-gpg-plugin</artifactId>
-		      <version>3.1.0</version>
+		      <version>3.2.7</version>
 	      </plugin>
 	      <plugin>
 		      <groupId>org.sonatype.plugins</groupId>
 		      <artifactId>nexus-staging-maven-plugin</artifactId>
-		      <version>1.6.13</version>
+		      <version>1.7.0</version>
 	      </plugin>
 	      <plugin>
 	        <groupId>org.apache.maven.plugins</groupId>
 	        <artifactId>maven-release-plugin</artifactId>
-	        <version>3.0.1</version>
+	        <version>3.1.1</version>
 	      </plugin>
 		  <plugin>
 		     <groupId>org.codehaus.mojo</groupId>
 		     <artifactId>versions-maven-plugin</artifactId>
-		     <version>2.16.2</version>
+		     <version>2.18.0</version>
 		  </plugin>
 		</plugins>
 	</pluginManagement>
